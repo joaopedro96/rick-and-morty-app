@@ -19,7 +19,6 @@ final class RMFlowManager: UINavigationController, RMFactoryProtocol {
         let characterViewModel = RMCharacterListViewModel(service: RMServiceManager.shared)
         let viewController = RMCharacterListViewController(viewModel: characterViewModel)
         viewController.delegate = self
-        characterViewModel.viewController = viewController
         return viewController
     }
 

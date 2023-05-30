@@ -6,17 +6,12 @@
 //
 
 import UIKit
+import RxSwift
 
 protocol RMCharacterListViewModelProtocol: AnyObject {
-    var viewController: RMCharacterListViewControllerProtocol? { get }
-    var viewState: RMCharacterListViewState { get }
+    var viewState: BehaviorSubject<RMCharacterListViewState> { get }
     func initState()
     func getNextPageData(with url: String)
-}
-
-protocol RMCharacterListViewControllerProtocol: AnyObject {
-    var delegate: RMCharacterListViewControllerDelegate? { get set }
-    func updateState(with viewState: RMCharacterListViewState)
 }
 
 protocol RMCharacterListViewControllerDelegate: AnyObject {

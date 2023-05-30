@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import RxSwift
 
 final class RMCharacterListViewController: UIViewController {
     
     // MARK: - PROPERTIES
     
+    private let disposeBag = DisposeBag()
     private let viewModel: RMCharacterListViewModelProtocol
     private let contentView: RMCharacterListViewProtocol
     weak var delegate: RMCharacterListViewControllerDelegate?
@@ -35,6 +37,7 @@ final class RMCharacterListViewController: UIViewController {
         super.viewDidLoad()
         viewModel.initState()
         setupController()
+        bindObservables()
     }
     
     // MARK: - PRIVATE METHODS
@@ -44,15 +47,15 @@ final class RMCharacterListViewController: UIViewController {
         view = contentView.content
         contentView.delegate = self
     }
+    
+    private func bindObservables() {
+        viewModel.viewState.subscribe(onNext: { [weak self] state in
+            self?.contentView.updateState(with: state)
+        }).disposed(by: disposeBag)
+    }
 }
 
 // MARK: - EXTENSIONS
-
-extension RMCharacterListViewController: RMCharacterListViewControllerProtocol {
-    func updateState(with viewState: RMCharacterListViewState) {
-        contentView.updateState(with: viewState)
-    }
-}
 
 extension RMCharacterListViewController: RMCharacterListViewDelegate {
     func getNextPage(with url: String) {

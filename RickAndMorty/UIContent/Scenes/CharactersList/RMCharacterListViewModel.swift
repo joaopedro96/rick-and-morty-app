@@ -6,18 +6,15 @@
 //
 
 import Foundation
+import RxSwift
 
 final class RMCharacterListViewModel: RMCharacterListViewModelProtocol {
     
     // MARK: - PROPERTIES
     
     private let service: RMServiceManagerProtocol
-    weak var viewController: RMCharacterListViewControllerProtocol?
-    var viewState: RMCharacterListViewState = .isEmpty {
-        didSet {
-            viewController?.updateState(with: viewState)
-        }
-    }
+    private let disposeBag = DisposeBag()
+    let viewState = BehaviorSubject<RMCharacterListViewState>(value: .isEmpty)
     
     // MARK: - INITIALIZER
     
@@ -28,7 +25,7 @@ final class RMCharacterListViewModel: RMCharacterListViewModelProtocol {
     // MARK: - PUBLIC METHODS
     
     func initState() {
-        viewState = .isLoading
+        viewState.onNext(.isLoading)
         fetchCharacterData()
     }
     
@@ -42,9 +39,9 @@ final class RMCharacterListViewModel: RMCharacterListViewModelProtocol {
         service.execute(request: RMRequest.character) { [weak self] (result: Result<RMCharacterListResponse, Error>) in
             switch result {
                 case .success(let data):
-                    self?.viewState = .hasData(data)
+                    self?.viewState.onNext(.hasData(data))
                 case .failure:
-                    self?.viewState = .hasError
+                    self?.viewState.onNext(.hasError)
             }
         }
     }
@@ -53,9 +50,9 @@ final class RMCharacterListViewModel: RMCharacterListViewModelProtocol {
         service.execute(request: RMRequest.nextPage(url: url)) { [weak self] (result: Result<RMCharacterListResponse, Error>) in
             switch result {
                 case .success(let data):
-                    self?.viewState = .hasNextPageData(data)
+                    self?.viewState.onNext(.hasNextPageData(data))
                 case .failure:
-                    self?.viewState = .hasError
+                    self?.viewState.onNext(.hasError)
             }
         }
     }
