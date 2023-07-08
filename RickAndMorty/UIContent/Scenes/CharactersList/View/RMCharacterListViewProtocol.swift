@@ -16,6 +16,7 @@ protocol RMCharacterListViewProtocol: AnyObject {
 protocol RMCharacterListViewDelegate: AnyObject {
     func didTapCharacter(_ selectedCharacter: RMCharacterDetailResponse)
     func getNextPage(with url: String)
+    func goToBottomSheet()
 }
 
 extension RMCharacterListViewProtocol where Self: UIView {

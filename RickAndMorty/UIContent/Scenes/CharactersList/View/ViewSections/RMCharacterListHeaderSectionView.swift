@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol RMCharacterListHeaderSectionViewDelegate: AnyObject {
+    func goToBottomSheet()
+}
+
 final class RMCharacterListHeaderSectionView: UIView {
+    
+    weak var delegate: RMCharacterListHeaderSectionViewDelegate?
     
     // MARK: - INITIALIZER
     
@@ -49,9 +55,10 @@ final class RMCharacterListHeaderSectionView: UIView {
     // MARK: - PRIVATE METHODS
     
     @objc private func didTapHeader() {
-        if let url = URL(string: "https://www.rickandmortyapi.com") {
-            UIApplication.shared.open(url)
-        }
+//        if let url = URL(string: "https://www.rickandmortyapi.com") {
+//            UIApplication.shared.open(url)
+//        }
+        delegate?.goToBottomSheet()
     }
     
     // MARK: - SETUP VIEW

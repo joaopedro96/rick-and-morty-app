@@ -56,6 +56,7 @@ final class RMCharacterListView: UIView {
     
     private lazy var headerSectionView: RMCharacterListHeaderSectionView = {
         let setupComponent = RMCharacterListHeaderSectionView()
+        setupComponent.delegate = self
         setupComponent.translatesAutoresizingMaskIntoConstraints = false
         setupComponent.isHidden = true
         setupComponent.alpha = 0
@@ -166,5 +167,11 @@ extension RMCharacterListView: UIScrollViewDelegate {
             bodySectionView.shouldShowLoading = true
             delegate?.getNextPage(with: nextPageUrl)
         }
+    }
+}
+
+extension RMCharacterListView: RMCharacterListHeaderSectionViewDelegate {
+    func goToBottomSheet() {
+        delegate?.goToBottomSheet()
     }
 }

@@ -8,5 +8,5 @@ target 'RickAndMorty' do
   # Pods for RickAndMorty
 pod 'Alamofire'
 pod 'RxSwift'
-
+pod 'FloatingPanel', '1.7.6'
 end

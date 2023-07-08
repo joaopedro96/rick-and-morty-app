@@ -1,20 +1,24 @@
 PODS:
   - Alamofire (5.7.1)
+  - FloatingPanel (1.7.6)
   - RxSwift (6.5.0)
 
 DEPENDENCIES:
   - Alamofire
+  - FloatingPanel (= 1.7.6)
   - RxSwift
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - FloatingPanel
     - RxSwift
 
 SPEC CHECKSUMS:
   Alamofire: 0123a34370cb170936ae79a8df46cc62b2edeb88
+  FloatingPanel: 9016eac88f21ca9fce53f5709e1f49485c0c355e
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
 
-PODFILE CHECKSUM: 3669c3824c73915d47c46da465284429721e205d
+PODFILE CHECKSUM: 8b031ab2eb215f470b7ad7bfac264d856fecdb25
 
 COCOAPODS: 1.12.1

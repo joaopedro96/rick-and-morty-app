@@ -59,6 +59,9 @@
 		7FF621C02A17FA2300E94950 /* RMCharacterDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF621BF2A17FA2300E94950 /* RMCharacterDetailResponse.swift */; };
 		7FF621C22A17FCDA00E94950 /* RMCharacterListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF621C12A17FCDA00E94950 /* RMCharacterListResponse.swift */; };
 		7FF621C42A17FD8500E94950 /* RMRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF621C32A17FD8500E94950 /* RMRequest.swift */; };
+		CF57CE7C2A3F81870019CA19 /* RMBottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF57CE7B2A3F81870019CA19 /* RMBottomSheetViewController.swift */; };
+		CF57CE7E2A3F83FC0019CA19 /* RMBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF57CE7D2A3F83FC0019CA19 /* RMBottomSheetView.swift */; };
+		CF57CE802A3FE0C30019CA19 /* RMFloatingPanelLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF57CE7F2A3FE0C30019CA19 /* RMFloatingPanelLayout.swift */; };
 		EC91A3D4DB97A2128DD872BD /* Pods_RickAndMorty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9E0122F25F81B5D5CE6F2D2 /* Pods_RickAndMorty.framework */; };
 /* End PBXBuildFile section */
 
@@ -130,6 +133,9 @@
 		7FF621C12A17FCDA00E94950 /* RMCharacterListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMCharacterListResponse.swift; sourceTree = "<group>"; };
 		7FF621C32A17FD8500E94950 /* RMRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMRequest.swift; sourceTree = "<group>"; };
 		C9030F7967463FD89349D9C1 /* Pods-RickAndMorty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RickAndMorty.release.xcconfig"; path = "Target Support Files/Pods-RickAndMorty/Pods-RickAndMorty.release.xcconfig"; sourceTree = "<group>"; };
+		CF57CE7B2A3F81870019CA19 /* RMBottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMBottomSheetViewController.swift; sourceTree = "<group>"; };
+		CF57CE7D2A3F83FC0019CA19 /* RMBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMBottomSheetView.swift; sourceTree = "<group>"; };
+		CF57CE7F2A3FE0C30019CA19 /* RMFloatingPanelLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RMFloatingPanelLayout.swift; sourceTree = "<group>"; };
 		D9E0122F25F81B5D5CE6F2D2 /* Pods_RickAndMorty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RickAndMorty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -294,6 +300,7 @@
 		7FACDF962A1876250038184E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				CF57CE7A2A3F81720019CA19 /* BottomSheet */,
 				7F755A1B2A19B3CB00F3D698 /* DynamicCollectionView */,
 				7F50CD162A1B045A00CDDC82 /* DynamicTableView */,
 				7FA23A2F2A1A8FEE00EA9480 /* ParallelLabel */,
@@ -480,6 +487,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CF57CE7A2A3F81720019CA19 /* BottomSheet */ = {
+			isa = PBXGroup;
+			children = (
+				CF57CE7B2A3F81870019CA19 /* RMBottomSheetViewController.swift */,
+				CF57CE7D2A3F83FC0019CA19 /* RMBottomSheetView.swift */,
+				CF57CE7F2A3FE0C30019CA19 /* RMFloatingPanelLayout.swift */,
+			);
+			path = BottomSheet;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -528,7 +545,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1400;
-				LastUpgradeCheck = 1400;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					7F01FC352A1B938F00DC1A21 = {
 						CreatedOnToolsVersion = 14.0.1;
@@ -638,6 +655,7 @@
 				7FA23A3E2A1AA57E00EA9480 /* RMEpisodesListViewState.swift in Sources */,
 				7FA23A332A1A9A9B00EA9480 /* RMCharacterDetaiFooterSectionView.swift in Sources */,
 				7F4208272A1A7BE0005B70D9 /* RMCharacterDetailProtocol.swift in Sources */,
+				CF57CE7E2A3F83FC0019CA19 /* RMBottomSheetView.swift in Sources */,
 				7F7559FF2A1927D400F3D698 /* RMCharacterListProtocol.swift in Sources */,
 				7F7559FB2A1927A300F3D698 /* RMCharacterListViewModel.swift in Sources */,
 				7FF621C22A17FCDA00E94950 /* RMCharacterListResponse.swift in Sources */,
@@ -655,6 +673,7 @@
 				7F7559F62A187BA000F3D698 /* RMFlowManager.swift in Sources */,
 				7F4208252A1A7BB7005B70D9 /* RMCharacterDetailViewModel.swift in Sources */,
 				7F42082F2A1A7D1B005B70D9 /* RMCharacterDetailView.swift in Sources */,
+				CF57CE7C2A3F81870019CA19 /* RMBottomSheetViewController.swift in Sources */,
 				7F755A072A19464E00F3D698 /* UIViewExtensions.swift in Sources */,
 				7FF34EDA2A19C0E200C5C4B9 /* RMCharacterListFooterReusableView.swift in Sources */,
 				7F50CD102A1AE3C400CDDC82 /* RMEpisodesListHeaderSectionView.swift in Sources */,
@@ -665,6 +684,7 @@
 				7F755A0A2A19477200F3D698 /* RMCharacterListBodySectionView.swift in Sources */,
 				7F755A0C2A197A2C00F3D698 /* RMCharacterListViewCell.swift in Sources */,
 				7FA23A3C2A1AA56900EA9480 /* RMEpisodesListViewProtocol.swift in Sources */,
+				CF57CE802A3FE0C30019CA19 /* RMFloatingPanelLayout.swift in Sources */,
 				7FF621A22A17F00000E94950 /* SceneDelegate.swift in Sources */,
 				7F4208312A1A7DC2005B70D9 /* UIStackViewExtensions.swift in Sources */,
 				7F7559FD2A1927AF00F3D698 /* RMCharacterListView.swift in Sources */,
@@ -712,6 +732,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MACOSX_DEPLOYMENT_TARGET = 12.3;
@@ -733,6 +754,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MACOSX_DEPLOYMENT_TARGET = 12.3;

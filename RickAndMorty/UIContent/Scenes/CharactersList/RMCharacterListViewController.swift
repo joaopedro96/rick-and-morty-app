@@ -63,7 +63,58 @@ extension RMCharacterListViewController: RMCharacterListViewDelegate {
     }
     
     func didTapCharacter(_ selectedCharacter: RMCharacterDetailResponse) {
-        guard let tabIndex = navigationController?.tabBarItem.tag else { return }
-        delegate?.goToCharacterDetailPage(with: selectedCharacter, from: tabIndex)
+//        guard let tabIndex = navigationController?.tabBarItem.tag else { return }
+//        delegate?.goToCharacterDetailPage(with: selectedCharacter, from: tabIndex)
+        goToBottomSheet2()
+    }
+    
+    func goToBottomSheet() {
+        let view = TestBottomShitView()
+        let fpc = RMBottomSheetViewController(contentView: view)
+        fpc.bottomSheetDelegate = self
+        present(fpc, animated: true, completion: nil)
+    }
+    
+    func goToBottomSheet2() {
+        let view = TestBottomShitView2()
+        let fpc = RMBottomSheetViewController(contentView: view)
+        fpc.bottomSheetDelegate = self
+        fpc.didTapBackDrop = { panelController in
+            print("safe")
+            panelController.dismiss(animated: true)
+        }
+        
+        present(fpc, animated: true, completion: nil)
+    }
+}
+
+extension RMCharacterListViewController: BottomSheetDelegate {
+    func sendEvent(from floatPanel: UIViewController, and event: any BottomSheetEvents) {
+        
+        switch event {
+            case let newEvent as TestBottomShitEvents:
+                executeBottomSheetEvent(for: newEvent, and: floatPanel)
+                
+            case let newEvent as TestBottomShit2Events:
+                executeBottomSheet2Event(for: newEvent, and: floatPanel)
+                
+            default: return
+        }
+    }
+    
+    private func executeBottomSheetEvent(for event: TestBottomShitEvents, and floatPanel: UIViewController) {
+        switch event {
+            case .didTapOkButton:
+                print("ok")
+                floatPanel.dismiss(animated: true)
+        }
+    }
+    
+    private func executeBottomSheet2Event(for event: TestBottomShit2Events, and floatPanel: UIViewController) {
+        switch event {
+            case .didTapDaleButton:
+                print("dale")
+                floatPanel.dismiss(animated: true)
+        }
     }
 }
